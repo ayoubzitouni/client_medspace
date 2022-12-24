@@ -7,7 +7,7 @@ import { GET_ALL_USERS_FAIL, GET_ALL_USERS_REQUEST, GET_ALL_USERS_SUCCESS, GET_M
 export const getAllUsersActions=(cred)=>async(dispatch)=>{
     try {
         dispatch({type:GET_ALL_USERS_REQUEST})
-        const {data}= await axios.get(`http://localhost:4000/patientsAPI/allusers/${cred.role}`)
+        const {data}= await axios.get(`https://medspace.onrender.com/patientsAPI/allusers/${cred.role}`)
         dispatch({type:GET_ALL_USERS_SUCCESS,data})
     } catch (error) {
         dispatch({type:GET_ALL_USERS_FAIL})
@@ -17,7 +17,7 @@ export const getAllUsersActions=(cred)=>async(dispatch)=>{
  export const getUserActions=(cred1,cred2)=>async(dispatch)=>{
     try {
         dispatch({type:GET_USER_REQUEST})
-        const {data}= await axios.get(`http://localhost:4000/patientsAPI/user/${cred1}/${cred2}`)
+        const {data}= await axios.get(`https://medspace.onrender.com/patientsAPI/user/${cred1}/${cred2}`)
         dispatch({type:GET_USER_SUCCESS,data})
     } catch (error) {
         dispatch({type:GET_USER_FAIL})
@@ -34,7 +34,7 @@ export const getAllUsersActions=(cred)=>async(dispatch)=>{
  export const loginpatient=({email,password})=>async(dispatch)=>{
     try {
         dispatch({type:LOGIN_REQUEST})
-        const {data}=await axios.post("http://localhost:4000/patientsAPI/login",{email:email,password:password})
+        const {data}=await axios.post("https://medspace.onrender.com/patientsAPI/login",{email:email,password:password})
         dispatch({type:LOGIN_SUCCESS,payload:data})
         if(data){
             localStorage.setItem("auth",JSON.stringify(data)) 
@@ -48,7 +48,7 @@ export const getAllUsersActions=(cred)=>async(dispatch)=>{
     try {
         const {name,email,password,dateofBirth}=cred
         dispatch({type:SIGNUP_REQUEST})
-        const {data}= await axios.post("http://localhost:4000/patientsAPI/addNewPatient",{name:name,email:email,password:password,dateOfBirth:dateofBirth})
+        const {data}= await axios.post("https://medspace.onrender.com/patientsAPI/addNewPatient",{name:name,email:email,password:password,dateOfBirth:dateofBirth})
         dispatch({type:SIGNUP_SUCCESS,payload:data})
     } catch (error) {
         dispatch({type:SIGNUP_FAIL})
@@ -58,7 +58,7 @@ export const signUpDoctor=(cred)=>async(dispatch)=>{
     try {
         const {name,email,speciality}=cred
         dispatch({type:SIGNUP_DOCTOR_REQUEST})
-        const data=await axios.post("http://localhost:4000/doctorsAPI/adddoctor",{name:name,email:email,speciality:speciality})
+        const data=await axios.post("https://medspace.onrender.com/doctorsAPI/adddoctor",{name:name,email:email,speciality:speciality})
         dispatch({type:SIGNUP_DOCTOR_SUCCESS,data})
     } catch (error) {
         dispatch({type:SIGNUP_FAIL})
@@ -67,7 +67,7 @@ export const signUpDoctor=(cred)=>async(dispatch)=>{
 export const getMedicalRep=(cred)=>async(dispatch)=>{
     try {
         dispatch({type:GET_MEDICAL_REPORT_REQUEST})
-        const {data}= await axios.get(`http://localhost:4000/patientsAPI/getmedicals/${cred}`)
+        const {data}= await axios.get(`https://medspace.onrender.com/patientsAPI/getmedicals/${cred}`)
         dispatch({type:GET_MEDICAL_REPORT_SUCCESS,payload:data.repo})
 
     } catch (error) {
@@ -78,7 +78,7 @@ export const getMedicalRep=(cred)=>async(dispatch)=>{
 export const submitAppointmentAction=(cred)=>async(dispatch)=>{
     try {  
         dispatch({type:SUBMIT_APPOINTMENT_REQUEST})
-        const {data}=await axios.post("http://localhost:4000/patientsAPI/submitappointment",cred)
+        const {data}=await axios.post("https://medspace.onrender.com/patientsAPI/submitappointment",cred)
         dispatch({type:SUBMIT_APPOINTMENT_SUCCESS,data})
     } catch (error) {
         dispatch({type:SUBMIT_APPOINTMENT_FAIL})
