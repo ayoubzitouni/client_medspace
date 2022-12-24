@@ -1,0 +1,17 @@
+.sidebar{
+    width: 15vw;
+    height: calc(100vh - 70px);
+    background-color: #BFEAF5;
+    border-radius: 0 20px 20px 0;
+}
+.sidebar .doctor{
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 10px;
+    height: fit-content;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.sidebar .doctor h1{
+    color: wheat;
+}

@@ -1,0 +1,23 @@
+.getappointment .search{
+    background-color: #BFEAF5;
+    height: 200px;
+    width: 225px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.getappointment{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.getappointment .listofcards {
+    margin-top: 1vh;
+    width:25vw;
+}
+.getappointment .appointment{
+    margin-left: 10vw;
+    margin-top: 1vh;
+    width:30vw;
+}

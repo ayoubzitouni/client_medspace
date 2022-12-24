@@ -1,0 +1,18 @@
+.patients_get{
+    height: 200px;
+    width: 50vw;
+    background-color: #BFEAF5;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.intervention{
+    width: 50vw;
+}
+.intervention h1{
+    text-align: center;
+}
+.inter{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

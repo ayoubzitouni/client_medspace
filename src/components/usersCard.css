@@ -1,0 +1,17 @@
+
+
+.usersCard .card{
+    
+    margin-top: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    
+}
+.usersCard .card p, .usersCard .card button{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30%;
+}

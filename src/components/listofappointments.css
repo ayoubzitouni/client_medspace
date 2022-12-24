@@ -1,0 +1,7 @@
+.listofappointment{
+    margin-top: 10px;
+    width: 100%;
+    height: calc(99vh - 80px);
+    overflow: hidden;
+    overflow-y: auto;
+}

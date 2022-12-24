@@ -1,0 +1,11 @@
+.dashboard{
+    height: calc(100vh - 70px);
+    overflow: hidden;
+
+}
+.dashboard .content{
+    display: flex;
+    padding: 5px;
+    cursor:context-menu;
+    justify-content: space-evenly;
+}
