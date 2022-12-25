@@ -8,7 +8,7 @@ import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider'
 import'./appointment.css'
 
 import 'react-datepicker/dist/react-datepicker.css'
-import { InputLabel, Stack } from '@mui/material'
+import { Alert, InputLabel, Stack } from '@mui/material'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { getAllUsersActions, submitAppointmentAction } from '../Redux/Actions/userActions'
 import Listofappointment from './Listofappointment'
@@ -17,6 +17,8 @@ import Listofappointment from './Listofappointment'
 const Getappointment = () => {
     const dispatch=useDispatch()
     const patients=useSelector(state=>state.getAllUsers)
+    const appoint=useSelector(state=>state.submitAppointment)
+    const update=useSelector(state=>state.update)
     const cred=JSON.parse(localStorage.getItem("auth")) 
     const date= dayjs(new Date())
     const [value, setValue] = useState(date);
@@ -56,9 +58,9 @@ const Getappointment = () => {
       </InputGroup>
       <div className='searching'>
         {disdoctor.name.length!=0?
-      <div className="search">
+      <div style={{overflow:"hidden",overflowY:"auto"}}className="search">
         {patients && patients.patients?
-          patients.patients.data.allUsers.map((el)=>disdoctor.name.length!=0 && el.name.toLowerCase().includes(disdoctor.name.toLowerCase())?<p onClick={()=>setDisdoctor({...disdoctor,name:el.name,docid:el._id,speciality:el.speciality})}>{el.name}</p>:el.name.toLowerCase().includes(disdoctor.name.toLowerCase()) && el.speciality.includes(disdoctor.speciality)?<p onClick={()=>setDisdoctor({...disdoctor,name:el.name,docid:el._id})}>{el.name}</p>:null)
+          patients.patients.data.allUsers.map((el)=>disdoctor.name.length!=0 && el.name.toLowerCase().includes(disdoctor.name.toLowerCase()) && el.role==1 ?<p onClick={()=>setDisdoctor({...disdoctor,name:el.name,docid:el._id,speciality:el.speciality})}>{el.name}</p>:el.name.toLowerCase().includes(disdoctor.name.toLowerCase()) && el.speciality.includes(disdoctor.speciality) && el.role==1 ?<p onClick={()=>setDisdoctor({...disdoctor,name:el.name,docid:el._id})}>{el.name}</p>:null)
           :null}
       </div>
       :null
@@ -72,6 +74,10 @@ const Getappointment = () => {
           </Stack>
         </LocalizationProvider>
         <Button type='submit' onClick={()=>{handleSubmit()}}>Submit appointment</Button>
+        <span className="message">
+        {appoint && appoint.appointment?<span style={{marginLeft:"15px",color:"green",textTransform:"capitalize",width:"fit-content"}}>{appoint.appointment.data.message}</span>:null}
+        </span>
+        
       </Form>
       :null}
       </div>

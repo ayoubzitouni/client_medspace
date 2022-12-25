@@ -24,21 +24,21 @@ const Nb = () => {
   return (
     <div className='nb'>
       
-        <Navbar bg="primary" variant="dark">
+        <Navbar  bg="primary" variant="dark">
             <Container>
-            <LinkContainer to="/">
+            <LinkContainer style={{textDecoration:"none"}} to="/">
             <Navbar.Brand href="#home">MedSpace</Navbar.Brand>
             </LinkContainer>
                 <Nav className="me-auto">
-                  <LinkContainer to="/">
-                    <Nav.Link>Home</Nav.Link>
+                  <LinkContainer style={{textDecoration:"none"}}to="/">
+                    <Nav.Link >Home</Nav.Link>
                   </LinkContainer>
                 {localStorage.getItem("auth") ?
-                    <LinkContainer to="/profile">
+                    <LinkContainer style={{textDecoration:"none"}} to="/profile">
                       <Nav.Link >Profile</Nav.Link>
                     </LinkContainer>
                     :
-                <LinkContainer to="/login">
+                <LinkContainer  style={{textDecoration:"none"}} to="/login">
                   <Nav.Link >Login</Nav.Link>
                 </LinkContainer>
                 }
@@ -63,11 +63,11 @@ const Nb = () => {
                 }
                 {
                   !localStorage.getItem("auth") ?
-                  <LinkContainer to="/signup">
+                  <LinkContainer style={{textDecoration:"none"}} to="/signup">
                     <Nav.Link >Signup</Nav.Link>
                   </LinkContainer>
                   :
-                  <Nav.Link><Button type="submit" onClick={handleLogout}>LogOut</Button></Nav.Link>
+                  <Nav.Link><Button variant='light' size='sm' type="submit" onClick={handleLogout}>LogOut</Button></Nav.Link>
                   
                 }
             </Nav>

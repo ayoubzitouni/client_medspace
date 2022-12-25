@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
+import { Alert } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { validateAppointmentAction } from '../Redux/Actions/doctorAction';
-import { getUserActions } from '../Redux/Actions/userActions';
 import './appointmentcard.css'
 const AppointmentCard = ({list}) => {
   const dispatch=useDispatch()
     const auth=JSON.parse(localStorage.getItem("auth"))
     const x=useSelector(state=>state.getAllUsers)
-
+    const update=useSelector(state=>state.update)
   const handleValidate=(appid)=>{
     dispatch(validateAppointmentAction(appid))
+    
   }
 
   return (
@@ -24,10 +25,12 @@ const AppointmentCard = ({list}) => {
                 {`Date: ${list.date.slice(0,10)} at ${list.date.slice(11,16)}`}
             </Card.Text>
         {list.validation==false && auth.role==0?
-        <h2 style={{color:"#6ECCAF",backgroundColor:"#344D67",textDecoration:"none",borderRadius:"5px",textAlign:"center"}}>Pending</h2>:
+        <h2 style={{color:"#CFFDE1",backgroundColor:"#344D67",textDecoration:"none",borderRadius:"5px",textAlign:"center"}}>Pending</h2>:
         list.validation==true || auth.role==0?
         <h2 style={{color:"#CFFDE1",backgroundColor:"#68B984",textDecoration:"none",borderRadius:"5px",textAlign:"center"}}>Valid</h2>:
-        <Button onClick={()=>{handleValidate(list._id)}}>Validate</Button>}
+        <Button onClick={()=>{handleValidate(list._id)}}>Validate</Button>
+        }
+        
         
         </Card.Body>
         </Card>

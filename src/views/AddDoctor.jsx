@@ -5,7 +5,7 @@ import SignUpDoctor from '../components/SignUpDoctor'
 const AddDoctor = () => {
   return (
     <div>
-        <Link to="/adddoctor">
+        <Link style={{textDecoration:"none",color:"black"}} to="/adddoctor">
         <Nb/>
         <SignUpDoctor/>
         </Link>

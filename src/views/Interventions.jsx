@@ -8,7 +8,7 @@ import './interventions.css'
 const Interventions = () => {
   return (
     <div>
-        <Link to='/intervention'>
+        <Link style={{textDecoration:"none",color:"black"}} to='/intervention'>
             <Nb/>
             <MedIntervention/>
         </Link>

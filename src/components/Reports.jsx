@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { Button} from 'react-bootstrap'
 import { getMedicalRep } from '../Redux/Actions/userActions'
 import Cards from './Cards'
 
@@ -9,14 +8,14 @@ const Reports = () => {
   const {reports}=useSelector(state=>state.getReports)
   const [rep,setRep]=useState()
   const {userId}=JSON.parse(localStorage.getItem("auth"))
-
-  const handleReports=()=>{
+  useEffect(() => {
     dispatch(getMedicalRep(userId))
     setRep(reports)
-  }
+  }, [])
+  
+
   return (
-    <div>
-      <Button onClick={handleReports}>Show Reports</Button>
+    <div style={{width:"100%",display:"flex",flexDirection:"column",alignItems:"center",padding:"5px"}}>
       {rep && rep.map((el)=> <Cards reports={el} />)}
     </div>
   )

@@ -6,7 +6,7 @@ import Signupform from '../components/Signup'
 const Signup = () => {
   return (
     <div>
-      <Link to='/signup'>
+      <Link style={{textDecoration:"none",color:"black"}}to='/signup'>
         <Nb/>
         <Signupform/>
       </Link>

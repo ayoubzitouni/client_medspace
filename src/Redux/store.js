@@ -2,7 +2,7 @@ import {createStore,combineReducers, applyMiddleware} from 'redux'
 import { getAllUsersReducer, getMedicalRepReducers, getUserReducer, loginpatientsReducer, logoutReducer, signUpDoctorReducer, signUpPatientsReducer, submitAppointmentReduce } from './Reducers/userReducers'
 import{composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import { getAllAppointmentsReducer, getAvailableRoomsReducer, makeReportReducer, validateAppointmentReducer } from './Reducers/doctorReducers'
+import { getAllAppointmentsReducer, getAvailableRoomsReducer, makeReportReducer, submitInterventionReducer, validateAppointmentReducer } from './Reducers/doctorReducers'
 import { addNewRoomReducer, deleteUserReducer, getAllInterventionsReducer, getAllRoomsReducer } from './Reducers/adminReducers'
 import { getUserActions } from './Actions/userActions'
 
@@ -10,6 +10,7 @@ import { getUserActions } from './Actions/userActions'
 
 
 const Reducer=combineReducers({
+    submitIntervention:submitInterventionReducer,
     update:validateAppointmentReducer,
     getUser:getUserReducer,
     login:loginpatientsReducer,

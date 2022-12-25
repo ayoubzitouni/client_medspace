@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import {jsPDF} from 'jspdf'
-
+import './cards.css'
 
 const Cards = (el) => {
     const {reports}=el
@@ -13,12 +13,12 @@ const Cards = (el) => {
       doc.save()
     }
   return (
-    <div>
-          <Card style={{ width: '18rem' }}>
+    <div className='cardreport'>
+          <Card className='card'style={{ width: '40vw',margin:'5px'}}>
       <Card.Body>
         <Card.Title>{reports.title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-        <Card.Text>
+        <Card.Text style={{ maxHeight:"8vh",overflow:"hidden"}}>
         {reports.content}
         </Card.Text>
         <Button onClick={()=>printReport()}>Print PDF report</Button>

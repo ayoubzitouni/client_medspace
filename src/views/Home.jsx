@@ -6,7 +6,7 @@ import HomePage from '../components/HomePage'
 const Home = () => {
   return (
     <>
-     <Link to="/">
+     <Link style={{textDecoration:"none",color:"black"}}to="/">
         <Nb/>
         <HomePage/>
     </Link>

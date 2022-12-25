@@ -6,7 +6,7 @@ import Nb from '../components/Nb'
 const DashboardView = () => {
   return (
     <div>
-        <Link to="/dashboard">
+        <Link style={{textDecoration:"none",color:"black"}} to="/dashboard">
             <Nb/>
             <Dashboard/>
         </Link>

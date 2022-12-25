@@ -82,7 +82,7 @@ export const submitAppointmentReduce=(state=[],action)=>{
         case SUBMIT_APPOINTMENT_REQUEST:
             return {loading:true}
         case SUBMIT_APPOINTMENT_SUCCESS:
-            return {loading:false,appointment:action.payload}
+            return {loading:false,appointment:action}
         case SUBMIT_APPOINTMENT_FAIL:
             return {loading:false}    
         default:

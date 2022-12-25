@@ -9,6 +9,7 @@ import MedRep from './views/MedRep';
 import GetReport from './views/GetReport';
 import Interventions from './views/Interventions';
 import Dashboard from './views/DashboardView';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

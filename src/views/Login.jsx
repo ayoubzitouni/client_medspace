@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <div>
-      <Link to='/login'>
+      <Link style={{textDecoration:"none",color:"black"}} to='/login'>
         <Nb/>
         <Loginform/>
       </Link>

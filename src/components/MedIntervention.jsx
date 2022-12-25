@@ -15,6 +15,7 @@ const MedIntervention = () => {
     const [patientEmail, setPatientEmail] = useState("")
     const patients=useSelector(state=>state.getAllUsers)
     const {payload}=useSelector(state=>state.makeReport)
+    const submitIntervention=useSelector(state=>state.submitIntervention)
     const [intervention, setIntervention] = useState('')
     
     
@@ -62,9 +63,9 @@ const MedIntervention = () => {
                 />
                 <div>
                 {patientName.length!=0?
-                <div className='patients_get'>
+                <div className='patients_get' style={{overflow:"hidden",overflowY:"auto",padding:"5px"}}>
                     {patients && patients.patients ?
-                    patients.patients.data.allUsers.map((el)=>el.name.toLowerCase().includes(patientName.toLowerCase())?<p onClick={()=>{setPatientName(el.name);setPatientEmail(el.email)}}>{el.name}</p>:null)
+                    patients.patients.data.allUsers.map((el)=>el.name.toLowerCase().includes(patientName.toLowerCase()) && el.role==0?<p onClick={()=>{setPatientName(el.name);setPatientEmail(el.email)}}>{el.name}</p>:null)
                     :null}
                 </div>
                 :null
@@ -109,7 +110,9 @@ const MedIntervention = () => {
             
             <Button variant="primary" type="submit" onClick={()=>submitHandle()}>
                 Submit
-            </Button>
+            </Button>{
+                submitIntervention && submitIntervention.payload?<span style={{color:"green",marginLeft:"15px",textTransform:"capitalize"}}>{submitIntervention.payload.data.message}</span>:null
+            }
         </Form>
     </div>
     </div>

@@ -8,7 +8,7 @@ import Getappointment from '../components/Getappointment'
 const Profile = () => {
   return (
     <>
-    <Link to="/profile">
+    <Link style={{textDecoration:"none",color:"black"}} to="/profile">
         <NB/>
         <div className='Content'>
         <SideBar/>
